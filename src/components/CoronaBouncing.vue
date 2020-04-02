@@ -1,14 +1,36 @@
 <template>
   <div class="whole-app-container">
-    <div class="x">
+    <div class="x" v-for="n in multiplyingCoronaLeft" :key="n + 'left'">
       <img src="@/assets/covid.png" class="y" />
+    </div>
+    <div class="q" v-for="n in multiplyingCoronaRight" :key="n + 'right'">
+      <img src="@/assets/covid.png" class="r" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CoronaBouncing'
+  name: 'CoronaBouncing',
+  data() {
+    return {
+      multiplyingCoronaLeft: 1,
+      multiplyingCoronaRight: 1
+    };
+  },
+  methods: {
+    startIncrement() {
+      setInterval(() => {
+        this.multiplyingCoronaLeft++;
+      }, 13000);
+      setInterval(() => {
+        this.multiplyingCoronaRight++;
+      }, 7000);
+    }
+  },
+  mounted() {
+    this.startIncrement();
+  }
 };
 </script>
 
@@ -21,21 +43,38 @@ export default {
   width: 100vw;
 }
 
-$size: 100px;
+$size: 50px;
 
-img,
-div {
+.x,
+.y,
+.q,
+.r {
+  position: absolute;
   width: $size;
   height: $size;
   z-index: 0;
 }
 
 .x {
-  animation: x (random(11) + 4) + s linear infinite alternate;
+  top: 0;
+  left: 0;
+  animation: x 13s linear infinite alternate;
 }
 
 .y {
-  animation: y (random(11) + 4) + s linear infinite alternate;
+  top: 0;
+  left: 0;
+  animation: y 7s linear infinite alternate;
+}
+
+.q {
+  top: 0;
+  animation: q 13s linear infinite alternate;
+}
+
+.r {
+  top: 0;
+  animation: r 7s linear infinite alternate;
 }
 
 @keyframes x {
@@ -46,6 +85,18 @@ div {
 
 @keyframes y {
   100% {
+    transform: translateY(calc(100vh - #{$size}));
+  }
+}
+
+@keyframes q {
+  0% {
+    transform: translateX(calc(100vw - #{$size}));
+  }
+}
+
+@keyframes r {
+  0% {
     transform: translateY(calc(100vh - #{$size}));
   }
 }
