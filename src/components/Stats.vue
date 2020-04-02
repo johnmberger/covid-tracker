@@ -12,7 +12,7 @@
           >(<i class="material-icons md">{{
             positiveIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
           }}</i>
-          {{ formatStat(positiveIncrease) }} today)</span
+          {{ percentageIncrease(positive, positiveIncrease) }}% today)</span
         >
       </div>
     </div>
@@ -24,7 +24,7 @@
         >(<i class="material-icons md">{{
           deathIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
         }}</i>
-        {{ formatStat(deathIncrease) }} today)</span
+        {{ percentageIncrease(death, deathIncrease) }}% today)</span
       >
     </div>
     <div class="stat-node last">
@@ -35,7 +35,8 @@
         >(<i class="material-icons md">{{
           hospitalizedIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
         }}</i>
-        {{ formatStat(hospitalizedIncrease) }} today)</span
+        {{ percentageIncrease(hospitalized, hospitalizedIncrease) }}%
+        today)</span
       >
     </div>
   </div>
@@ -63,6 +64,9 @@ export default {
         return num.toLocaleString();
       }
       return num;
+    },
+    percentageIncrease(today, increase) {
+      return ((increase / (today - increase)) * 100).toFixed(2);
     }
   }
 };
@@ -134,7 +138,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
+        font-size: 18px;
         .md {
           font-size: 13px;
           margin-right: 6px;
