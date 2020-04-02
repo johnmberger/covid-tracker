@@ -1,15 +1,20 @@
 <template>
   <div class="stats">
     <div class="stat-node">
-      <div class="stat main">
-        <span>{{ formatStat(positive) }}</span> Cases
+      <div class="title">
+        <h1 class="title-text">
+          There have been<br />
+          <span class="cases">{{ formatStat(positive) }}</span
+          ><br />
+          fucking cases of coronavirus
+        </h1>
+        <span class="change"
+          >(<i class="material-icons md">{{
+            positiveIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
+          }}</i>
+          {{ formatStat(positiveIncrease) }} today)</span
+        >
       </div>
-      <span class="change"
-        >(<i class="material-icons md">{{
-          positiveIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
-        }}</i>
-        {{ formatStat(positiveIncrease) }} today)</span
-      >
     </div>
     <div class="stat-node">
       <div class="stat">
@@ -68,24 +73,45 @@ export default {
   z-index: 2;
   color: white;
   .stat-node {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     .stat {
-      font-size: 40px;
-      &.main {
-        font-size: 70px;
-      }
+      font-size: 48px;
       &.last {
-        padding-bottom: 60px;
+        padding-bottom: 40px;
       }
     }
     .change {
       display: flex;
       align-items: center;
       justify-content: center;
-      .md-18 {
-        font-size: 18px;
+      font-size: 28px;
+      .md {
+        font-size: 24px;
         margin-right: 6px;
       }
+    }
+  }
+}
+.title {
+  padding-top: 20px;
+  font-size: 32px;
+  margin-bottom: 40px;
+  &-text {
+    margin-bottom: 8px;
+  }
+  .cases {
+    font-size: 80px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .title {
+    // padding-top: 80px;
+    font-size: 16px;
+    &-text {
+      margin-bottom: 8px;
+    }
+    .cases {
+      font-size: 40px;
     }
   }
 }
@@ -93,11 +119,12 @@ export default {
 @media only screen and (max-width: 600px) {
   .stats {
     .stat-node {
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       .stat {
-        font-size: 20px;
+        font-size: 26px;
         &.main {
-          font-size: 32px;
+          margin-top: 50px;
+          font-size: 28px;
         }
         &.last {
           padding-bottom: 40px;
@@ -107,6 +134,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 24px;
         .md {
           font-size: 13px;
           margin-right: 6px;

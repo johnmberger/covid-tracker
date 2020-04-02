@@ -9,9 +9,7 @@
       </div>
     </div>
     <div v-else>
-      <div class="title">
-        <h1>Coronavirus in the US</h1>
-      </div>
+      <h2>In the USA,</h2>
       <stats />
       <corona-bouncing />
     </div>
@@ -62,17 +60,6 @@ body {
     background: black;
   }
 }
-.title {
-  padding-top: 80px;
-  font-size: 40px;
-}
-@media only screen and (max-width: 600px) {
-  .title {
-    padding-top: 40px;
-    font-size: 20px;
-  }
-}
-
 .updated {
   font-size: 12px;
   text-align: right;
