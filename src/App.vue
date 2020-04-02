@@ -32,7 +32,7 @@ export default {
     this.$store.dispatch('getLatest', { initialLoad: true });
     setInterval(() => {
       this.$store.dispatch('getLatest');
-    }, 300000);
+    }, 30000);
   },
   computed: {
     ...mapState(['loading', 'error', 'lastModified'])
