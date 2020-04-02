@@ -1,24 +1,5 @@
-# covid-tracker
+# Coronavirus (Covid-19) Tracker
 
-## Project setup
-```
-npm install
-```
+![github pages](https://github.com/johnmberger/covid-tracker/workflows/github%20pages/badge.svg)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+A simple little web dashboard that tracks the coronavirus cases in the USA
