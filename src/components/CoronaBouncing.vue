@@ -15,17 +15,21 @@ export default {
   data() {
     return {
       multiplyingCoronaLeft: 1,
-      multiplyingCoronaRight: 1
+      multiplyingCoronaRight: 0
     };
   },
   methods: {
     startIncrement() {
       setInterval(() => {
         this.multiplyingCoronaLeft++;
-      }, 13000);
+      }, 11000);
       setInterval(() => {
         this.multiplyingCoronaRight++;
-      }, 7000);
+      }, 13000);
+      setInterval(() => {
+        this.multiplyingCoronaLeft++;
+        this.multiplyingCoronaRight++;
+      }, 18000);
     }
   },
   mounted() {
