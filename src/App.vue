@@ -46,25 +46,36 @@ export default {
 body {
   margin: 0px;
   #app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
     min-height: 100vh;
     width: 100vw;
+    max-width: 100vw;
     font-family: 'Sanchez', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: white;
     background: black;
-    .title {
-      padding-top: 80px;
-      font-size: 60px;
-    }
   }
 }
+.title {
+  padding-top: 80px;
+  font-size: 40px;
+}
+@media only screen and (max-width: 600px) {
+  .title {
+    padding-top: 40px;
+    font-size: 20px;
+  }
+}
+
 .updated {
   font-size: 12px;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  text-align: right;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 </style>

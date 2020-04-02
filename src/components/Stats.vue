@@ -22,7 +22,7 @@
         {{ formatStat(deathIncrease) }} today)</span
       >
     </div>
-    <div class="stat-node">
+    <div class="stat-node last">
       <div class="stat">
         <span>{{ formatStat(hospitalized) }}</span> Hospitalizations
       </div>
@@ -73,6 +73,9 @@ export default {
       font-size: 40px;
       &.main {
         font-size: 70px;
+      }
+      &.last {
+        padding-bottom: 60px;
       }
     }
     .change {
