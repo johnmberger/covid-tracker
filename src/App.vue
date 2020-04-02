@@ -31,7 +31,10 @@ export default {
     CoronaBouncing
   },
   mounted() {
-    this.$store.dispatch('getLatest');
+    this.$store.dispatch('getLatest', { initialLoad: true });
+    setInterval(() => {
+      this.$store.dispatch('getLatest');
+    }, 300000);
   },
   computed: {
     ...mapState(['loading', 'error', 'lastModified'])
