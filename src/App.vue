@@ -52,7 +52,7 @@ body {
     min-height: 100vh;
     width: 100vw;
     max-width: 100vw;
-    font-family: 'Sanchez', serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

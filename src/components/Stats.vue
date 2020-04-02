@@ -9,35 +9,31 @@
           fucking cases of coronavirus
         </h1>
         <span class="change"
-          >(<i class="material-icons md">{{
-            positiveIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
-          }}</i>
-          {{ percentageIncrease(positive, positiveIncrease) }}% today)</span
+          ><i class="material-icons md">arrow_upward</i>
+          {{ percentageIncrease(positive, positiveIncrease) }}% since you
+          started watching Tiger King</span
         >
       </div>
     </div>
     <div class="stat-node">
       <div class="stat">
-        <span>{{ formatStat(death) }}</span> Deaths
+        <span class="num">{{ formatStat(death) }}</span> Deaths
       </div>
       <span class="change"
-        >(<i class="material-icons md">{{
-          deathIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
-        }}</i>
-        {{ percentageIncrease(death, deathIncrease) }}% today)</span
+        ><i class="material-icons md">arrow_upward</i>
+        {{ percentageIncrease(death, deathIncrease) }}% since you last touched
+        your face</span
       >
     </div>
     <div class="stat-node last">
       <div class="stat">
-        <span>{{ formatStat(hospitalized) }}</span> Hospitalizations
+        <span class="num">{{ formatStat(hospitalized) }}</span> Hospitalizations
       </div>
       <span class="change"
-        >(<i class="material-icons md">{{
-          hospitalizedIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
-        }}</i>
-        {{ percentageIncrease(hospitalized, hospitalizedIncrease) }}%
-        today)</span
-      >
+        ><i class="material-icons md">arrow_upward</i>
+        {{ percentageIncrease(hospitalized, hospitalizedIncrease) }}% since you
+        last washed your hands
+      </span>
     </div>
   </div>
 </template>
@@ -66,7 +62,7 @@ export default {
       return num;
     },
     percentageIncrease(today, increase) {
-      return ((increase / (today - increase)) * 100).toFixed(2);
+      return ((increase / (today - increase)) * 100).toFixed(0);
     }
   }
 };
@@ -78,8 +74,12 @@ export default {
   color: white;
   .stat-node {
     margin-bottom: 60px;
+    font-weight: 300;
     .stat {
       font-size: 48px;
+      .num {
+        font-weight: 700;
+      }
       &.last {
         padding-bottom: 40px;
       }
@@ -88,10 +88,10 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 20px;
+      margin-top: 6px;
       .md {
-        font-size: 24px;
-        margin-right: 6px;
+        font-size: 18px;
       }
     }
   }
@@ -102,9 +102,11 @@ export default {
   margin-bottom: 40px;
   &-text {
     margin-bottom: 8px;
+    font-weight: 300;
   }
   .cases {
     font-size: 80px;
+    font-weight: 700;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -141,7 +143,6 @@ export default {
         font-size: 18px;
         .md {
           font-size: 13px;
-          margin-right: 6px;
         }
       }
     }
