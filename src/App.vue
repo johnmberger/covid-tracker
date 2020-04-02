@@ -45,6 +45,7 @@ export default {
 <style lang="scss">
 body {
   margin: 0px;
+  max-width: 100vw;
   #app {
     display: flex;
     flex-direction: column;

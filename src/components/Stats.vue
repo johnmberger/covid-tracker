@@ -5,7 +5,7 @@
         <span>{{ formatStat(positive) }}</span> Cases
       </div>
       <span class="change"
-        >(<i class="material-icons md-18">{{
+        >(<i class="material-icons md">{{
           positiveIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
         }}</i>
         {{ formatStat(positiveIncrease) }} today)</span
@@ -16,7 +16,7 @@
         <span>{{ formatStat(death) }}</span> Deaths
       </div>
       <span class="change"
-        >(<i class="material-icons md-18">{{
+        >(<i class="material-icons md">{{
           deathIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
         }}</i>
         {{ formatStat(deathIncrease) }} today)</span
@@ -27,7 +27,7 @@
         <span>{{ formatStat(hospitalized) }}</span> Hospitalizations
       </div>
       <span class="change"
-        >(<i class="material-icons md-18">{{
+        >(<i class="material-icons md">{{
           hospitalizedIncrease >= 0 ? 'arrow_upward' : 'arrow_downward'
         }}</i>
         {{ formatStat(hospitalizedIncrease) }} today)</span
@@ -85,6 +85,32 @@ export default {
       .md-18 {
         font-size: 18px;
         margin-right: 6px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .stats {
+    .stat-node {
+      margin-bottom: 40px;
+      .stat {
+        font-size: 20px;
+        &.main {
+          font-size: 32px;
+        }
+        &.last {
+          padding-bottom: 40px;
+        }
+      }
+      .change {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .md {
+          font-size: 13px;
+          margin-right: 6px;
+        }
       }
     }
   }
