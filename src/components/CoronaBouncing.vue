@@ -6,6 +6,12 @@
     <div class="q" v-for="n in multiplyingCoronaRight" :key="n + 'right'">
       <img src="@/assets/covid.png" class="r" />
     </div>
+    <div class="q" v-if="showTrump">
+      <img src="@/assets/trump.png" class="r" />
+    </div>
+    <div class="x" v-if="showKemp">
+      <img src="@/assets/kemp.png" class="y kemp" />
+    </div>
   </div>
 </template>
 
@@ -15,12 +21,16 @@ export default {
   data() {
     return {
       multiplyingCoronaLeft: 1,
-      multiplyingCoronaRight: 0
+      multiplyingCoronaRight: 0,
+      leftTimeout: null,
+      rightTimeout: null,
+      showTrump: false,
+      showKemp: false
     };
   },
   methods: {
-    startIncrement() {
-      setInterval(() => {
+    initializeTimeouts() {
+      this.leftTimeout = setInterval(() => {
         this.multiplyingCoronaLeft++;
       }, 11000);
       setInterval(() => {
@@ -30,10 +40,28 @@ export default {
         this.multiplyingCoronaLeft++;
         this.multiplyingCoronaRight++;
       }, 18000);
+      setTimeout(() => {
+        this.showTrump = true;
+      }, 30000);
+      setTimeout(() => {
+        this.showKemp = true;
+      }, 90000);
     }
   },
   mounted() {
-    this.startIncrement();
+    this.initializeTimeouts();
+  },
+  watch: {
+    multiplyingCoronaLeft(val) {
+      if (val >= 100) {
+        clearInterval(this.leftTimeout);
+      }
+    },
+    multiplyingCoronaRight(val) {
+      if (val >= 100) {
+        clearInterval(this.rightTimeout);
+      }
+    }
   }
 };
 </script>
@@ -57,28 +85,30 @@ $size: 50px;
   width: $size;
   height: $size;
   z-index: 0;
+  &.kemp {
+    height: 50px;
+    width: 35px;
+  }
 }
 
 .x {
   top: 0;
-  left: 0;
   animation: x 13s linear infinite alternate;
 }
 
 .y {
   top: 0;
-  left: 0;
   animation: y 7s linear infinite alternate;
 }
 
 .q {
   top: 0;
-  animation: q 13s linear infinite alternate;
+  animation: q 11s linear infinite alternate;
 }
 
 .r {
   top: 0;
-  animation: r 7s linear infinite alternate;
+  animation: r 4s linear infinite alternate;
 }
 
 @keyframes x {
