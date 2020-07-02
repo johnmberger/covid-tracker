@@ -10,8 +10,7 @@
         </h1>
         <span class="change"
           ><i class="material-icons md">arrow_upward</i>
-          {{ percentageIncrease(positive, positiveIncrease) }}% since you
-          started watching Tiger King</span
+          {{ percentageIncrease(positive, positiveIncrease) }}% since yesterday</span
         >
       </div>
     </div>
