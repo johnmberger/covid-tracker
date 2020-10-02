@@ -28,7 +28,7 @@ export default new Vuex.Store({
         const latestStats = await api.getLatest();
         const todaysStats = await api.getTodaysStats();
         commit('setStats', latestStats.data.shift());
-        commit('setTodaysStats', todaysStats.data.shift());
+        commit('setTodaysStats', todaysStats.data);
       } catch (e) {
         commit('setError', true);
       } finally {
